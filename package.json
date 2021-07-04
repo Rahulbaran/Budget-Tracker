@@ -1,0 +1,19 @@
+{
+  "name": "budget-app",
+  "version": "1.0.0",
+  "description": "A budget app to track your monthly incand expense",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rahulbaran/Budget-Tracker.git"
+  },
+  "author": "Rahul Baran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rahulbaran/Budget-Tracker/issues"
+  },
+  "homepage": "https://github.com/Rahulbaran/Budget-Tracker#readme"
+}

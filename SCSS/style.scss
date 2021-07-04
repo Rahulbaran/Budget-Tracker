@@ -1,0 +1,242 @@
+$font-primary:'Nunito',sans-serif;
+$font-secondary:'Oxygen',sans-serif;
+$color-white:#fff;
+
+@mixin flex($just,$align,$dir:row) {
+    display:flex;
+    flex-flow:wrap $dir;
+    justify-content:$just;
+    align-items: $align;
+}
+@mixin font($family,$size, $weight) {
+    font-family:$family;
+    font-size:$size;
+    font-weight:$weight;
+}
+
+
+
+
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body {
+    @include font($font-primary,.9em,400);
+    line-height:1.5;
+    background-color:rgb(255, 213, 249);
+}
+
+/*scrollbar styling for chrome and edge(using -webkit)*/
+::-webkit-scrollbar {
+        width:14px;
+        height:14px;
+}
+::-webkit-scrollbar-track {
+    box-shadow:3px 0 5px rgba(0,0,0,.3) inset;
+    background-color:#fff;
+}
+::-webkit-scrollbar-thumb {
+    background-color:rgb(48, 43, 60);
+}
+
+
+/*APP SECTION*/
+.app--main {
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-areas:'heading'
+                        'total'
+                        'fields'
+                        'items';
+    place-items:center;
+    margin-top:.5em;
+    grid-row-gap:1.5em;
+
+    h1 {
+        grid-area:heading;
+        text-decoration:3px underline currentColor;
+        font-family:$font-secondary;
+        letter-spacing:1px;
+    }
+}
+.budget {
+    &__details__container {
+        grid-area:total;
+    }
+    &__add__container{
+        grid-area:fields;
+    }
+    &__items__container {
+        grid-area:items;
+    }
+}
+
+.card {
+    background-color:$color-white;
+    padding:1.2em 1.4em;
+    box-shadow:0 5px 8px rgba(0,0,0,.2);
+    border-radius:5px;
+}
+.current__month {
+    text-align:center;
+    @include font($font-secondary,1.3em,700);
+    margin-bottom:.6em;
+    color:rgb(248, 89, 3);
+}
+.total {
+    &__income__container,
+    &__expense__container,
+    &__budget__container {
+       width:250px;
+        font-size:1.15em;
+        padding:.5em .8em;
+        box-shadow:3px 3px 6px rgba(0,0,0,.4);
+
+        h4 {
+            width:100%;
+            @include flex(space-between,center);
+        }
+    }
+    &__budget__container {
+        background-color:yellow;
+        margin-bottom:.5em;
+    }
+    &__income__container {
+        background-color:rgb(13, 94, 181);
+        color:$color-white;
+        margin-bottom:.5em;
+    }
+    &__expense__container {
+        background-color:rgb(214, 38, 38);
+        color:$color-white;
+    }
+}
+
+
+/*BUDGET ADD SECTION*/
+.budget {
+    &__add__card {
+        @include flex(center,flex-end);
+        background-color:rgb(253, 255, 132);
+    
+        div {
+            @include flex(flex-end,center,column);
+            margin-left:.85em;
+            @include font($font-secondary,1.1em,700);
+    
+            label {
+                margin-bottom:.4em;
+                line-height:1.2;
+            }
+        }
+        div:nth-of-type(1) {
+            margin-left:0;
+        }
+    }
+    &__field {
+        @include font($font-primary,.85em,500);
+        border:none;
+        border:.1em solid rgb(189, 180, 180);
+        border-radius:3px;
+        padding:.4em .3em; 
+        &:focus {
+            border:.1em solid rgb(0, 0, 255);
+            outline:none;
+        }
+    }
+    &__type {
+        width:2.6em;
+        height:1.8em;
+        font-size:1.1em;
+        font-weight:600;
+        padding:.2em;
+    }
+    &__amount {
+        width:4.7em;       
+    }
+    &__add__btn {
+        background:transparent;
+        border:none;
+        margin-bottom:.1em;
+
+        span {
+            font-size:1.8em;
+            color:rgb(45, 46, 67);
+            padding:.1em .15em;
+            background-color:#fff;
+            border:1px solid rgb(186, 181, 181);
+            border-radius:6px;
+            transition:transform 300ms;
+        }
+        &:hover span {
+            cursor:pointer;
+            opacity:.8;
+        }
+        &:focus span{
+            border-color:blue;
+            color:blue;
+            cursor:pointer;
+            
+        }
+        &:active span {
+            transform :translateY(-1px);
+        }
+    } 
+}
+
+
+
+/*BUDGET ITEMS SECTION*/
+
+.budget {
+    &__items__card{
+        padding:0;
+    }
+    &__item{
+        width:19em;
+        @include flex(space-between,center);
+        padding:.3em .6em;
+        margin-bottom:.3em;
+        @include font($font-primary,1em,600);
+        line-height:1.2;
+    }
+    &__item:last-of-type {
+        margin-bottom:0;
+    }
+}
+.income__item{
+    background-color:rgb(173, 216, 230);
+}
+.expense__item {
+    background-color:rgb(235, 182, 182);
+}
+.delete__btn {
+    background:transparent;
+    border:none;
+    cursor:pointer; 
+    
+    span {
+        color:green;
+        filter:drop-shadow(2px 2px 1px rgba(0,0,0,.3));
+    }
+}
+
+
+
+/* MEDIA QUERIES FOR HANDLING FONT SIZE */
+
+@media (min-width:840px) {
+    body {
+        font-size:1.05em;
+    }
+}
+
+@media (min-width:1400px) {
+    body {
+        font-size:1.15em;
+    }
+}

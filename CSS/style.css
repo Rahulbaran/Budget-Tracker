@@ -1,0 +1,196 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #ffd5f9; }
+
+/*scrollbar styling for chrome and edge(using -webkit)*/
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px; }
+
+::-webkit-scrollbar-track {
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3) inset;
+  background-color: #fff; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #302b3c; }
+
+/*APP SECTION*/
+.app--main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'heading' 'total' 'fields' 'items';
+  place-items: center;
+  margin-top: .5em;
+  grid-row-gap: 1.5em; }
+  .app--main h1 {
+    grid-area: heading;
+    text-decoration: 3px underline currentColor;
+    font-family: "Oxygen", sans-serif;
+    letter-spacing: 1px; }
+
+.budget__details__container {
+  grid-area: total; }
+
+.budget__add__container {
+  grid-area: fields; }
+
+.budget__items__container {
+  grid-area: items; }
+
+.card {
+  background-color: #fff;
+  padding: 1.2em 1.4em;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px; }
+
+.current__month {
+  text-align: center;
+  font-family: "Oxygen", sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: .6em;
+  color: #f85903; }
+
+.total__income__container, .total__expense__container, .total__budget__container {
+  width: 250px;
+  font-size: 1.15em;
+  padding: .5em .8em;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); }
+  .total__income__container h4, .total__expense__container h4, .total__budget__container h4 {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center; }
+
+.total__budget__container {
+  background-color: yellow;
+  margin-bottom: .5em; }
+
+.total__income__container {
+  background-color: #0d5eb5;
+  color: #fff;
+  margin-bottom: .5em; }
+
+.total__expense__container {
+  background-color: #d62626;
+  color: #fff; }
+
+/*BUDGET ADD SECTION*/
+.budget__add__card {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #fdff84; }
+  .budget__add__card div {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: .85em;
+    font-family: "Oxygen", sans-serif;
+    font-size: 1.1em;
+    font-weight: 700; }
+    .budget__add__card div label {
+      margin-bottom: .4em;
+      line-height: 1.2; }
+  .budget__add__card div:nth-of-type(1) {
+    margin-left: 0; }
+
+.budget__field {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.85em;
+  font-weight: 500;
+  border: none;
+  border: 0.1em solid #bdb4b4;
+  border-radius: 3px;
+  padding: .4em .3em; }
+  .budget__field:focus {
+    border: 0.1em solid blue;
+    outline: none; }
+
+.budget__type {
+  width: 2.6em;
+  height: 1.8em;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: .2em; }
+
+.budget__amount {
+  width: 4.7em; }
+
+.budget__add__btn {
+  background: transparent;
+  border: none;
+  margin-bottom: .1em; }
+  .budget__add__btn span {
+    font-size: 1.8em;
+    color: #2d2e43;
+    padding: .1em .15em;
+    background-color: #fff;
+    border: 1px solid #bab5b5;
+    border-radius: 6px;
+    transition: transform 300ms; }
+  .budget__add__btn:hover span {
+    cursor: pointer;
+    opacity: .8; }
+  .budget__add__btn:focus span {
+    border-color: blue;
+    color: blue;
+    cursor: pointer; }
+  .budget__add__btn:active span {
+    transform: translateY(-1px); }
+
+/*BUDGET ITEMS SECTION*/
+.budget__items__card {
+  padding: 0; }
+
+.budget__item {
+  width: 19em;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  align-items: center;
+  padding: .3em .6em;
+  margin-bottom: .3em;
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.2; }
+
+.budget__item:last-of-type {
+  margin-bottom: 0; }
+
+.income__item {
+  background-color: lightblue; }
+
+.expense__item {
+  background-color: #ebb6b6; }
+
+.delete__btn {
+  background: transparent;
+  border: none;
+  cursor: pointer; }
+  .delete__btn span {
+    color: green;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3)); }
+
+/* MEDIA QUERIES FOR HANDLING FONT SIZE */
+@media (min-width: 840px) {
+  body {
+    font-size: 1.05em; } }
+
+@media (min-width: 1400px) {
+  body {
+    font-size: 1.15em; } }

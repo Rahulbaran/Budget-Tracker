@@ -4,7 +4,7 @@
   "description": "A budget app to track your monthly incand expense",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile-scss" : "node-sass scss/style.scss css/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Rahulbaran/Budget-Tracker/issues"
   },
-  "homepage": "https://github.com/Rahulbaran/Budget-Tracker#readme"
+  "homepage": "https://github.com/Rahulbaran/Budget-Tracker#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
 }

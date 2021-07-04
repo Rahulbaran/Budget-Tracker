@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rahul Kumar">
+    <meta name="copyright" content="reserved">
+    <meta name="contact" content="rahulkumar109422php@gmail.com">
+
+    <!-- page title -->
+    <title>Budget Tracker</title>
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- flaticon as favicon -->
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/png">
+
+    <!-- custom script file (deferred) -->
+    <script src="JS/main.js" defer></script>
+
+    <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
+
+</head>
+<body>
+    <main class="app--main">
+
+        <h1>Budget Tracker</h1>
+
+
+
+        <!-- budget details section -->
+        <section class="budget__details__container">
+
+            <div class="budget__details__card card">
+                <h4 class="current__month">December 2021</h4>
+                <div class="total__budget__container">
+                    <h4 class="total__budget">
+                        <span>Total Budget</span> 
+                        <span class="total__amount"> 15000/-</span>
+                    </h4>
+                </div>
+
+                <div class="total__income__container">
+                    <h4 class="total__income">
+                        <span> Total Income </span>
+                        <span class="income__amount"> 10000/-</span>
+                    </h4>
+                </div>
+
+                <div class="total__expense__container">
+                    <h4 class="total__expense">
+                        <span> Total Expense </span>
+                        <span class="expense__amount"> 5000/-</span>
+                    </h4>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- section about adding new budget  -->
+        <section class="budget__add__container">
+            <div class="card budget__add__card">
+                <div>
+                    <label for="type">Type </label>
+                    <select name="type" class="budget__type budget__field" id="type">
+                        <option value="inc">+</option>
+                        <option value="exp">-</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="description">Description</label>
+                    <input type="text" name="description" id="description" class="budget__desc budget__field field" placeholder="Budget description">
+                </div>
+                <div>
+                    <label for="amount">Amount</label>
+                    <input type="number" name="budget" class="budget__amount budget__field field" for="amount">
+                </div>
+                <div>
+                    <button class="budget__add__btn btn">
+                        <span class="material-icons">add_circle_outline</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- system about adding new budget items -->
+        <section class="budget__items__container">
+
+            <div class="budget__items__card card">
+               
+
+                <!-- <div class="income__item budget__item" id="inc-0">
+                    <p class="income__description">Blog</p>
+                    <p class="income__amount">5000/-</p>
+                    <button class="income__delete__btn delete__btn">
+                        <span class="material-icons income__icon">delete</span>
+                    </button>
+                </div>
+
+
+                <div class="expense__item budget__item" id="exp-0">
+                    <p class="expense__description">Car Rent</p>
+                    <p class="expense__amount">15000/-</p>
+                    <button class="expense__delete__btn delete__btn">
+                        <span class="material-icons expense__icon">delete</span>
+                    </button>
+                </div> -->
+            </div>
+            
+        </section>
+
+    </main>
+</body>
+</html>

@@ -81,6 +81,20 @@ var budgetModule = ( function () {
             return [allData.inc, allData.exp, allData.budget];   //returning an array
         },
 
+        deleteItem(type,ID) {
+
+            // storing ids of all the items in an array
+            var ids = allData.totals[type].map(obj => {
+                return obj.id;
+            });
+
+            // finding index of budget item based on the id 
+            var index = ids.indexOf(ID);
+
+            // deleting the item from the data-structure
+            allData.totals[type].splice(index,1);
+        },
+
         testMethod () {
             return allData;
         }
@@ -146,6 +160,12 @@ var UIModule = (function () {
             document.querySelector(selectors.totalAmount).textContent =  `${dataArray[2]}/-`;   
         },
 
+        removeItem(id) {
+            var parent = document.querySelector(selectors.budgetItems);
+            parent.removeChild(parent.querySelector(`#${id}`));
+
+        },
+
         getSelectors () {
             return selectors;
         },
@@ -170,6 +190,8 @@ var AppModule = (function (budgetMod, UIMod) {
         if(e.key === "Enter") InputData();
     });
 
+    // event handler for deleting budget item
+    document.querySelector(selectors.budgetItems).addEventListener('click',delBudgetItem);
 
 
     function InputData () {
@@ -189,18 +211,35 @@ var AppModule = (function (budgetMod, UIMod) {
 
             //budget Calculation
             calcBudget();
+
         }
 
+    }
 
-        // function related with calculate budget
-        function calcBudget() {
+    // function related with calculate budget
+    function calcBudget() {
 
-            //calculate budget
-            var allTotals = budgetMod.calculateBudget();
+        //calculate budget
+        var allTotals = budgetMod.calculateBudget();
 
-            //display budget
-            UIMod.dispalyBudget(allTotals)
-        }
+        //display budget
+        UIMod.dispalyBudget(allTotals)
+    }
+    
+
+    // function to delete budget item
+    function delBudgetItem(e) {
+        //getting id of the item
+        var ID = e.target.parentNode.parentNode.id;
+        
+        // splitting the id
+        let [itemType, itemId] = ID.split("-"); 
+       
+        //deleting the item from the datasturcture
+        budgetMod.deleteItem(itemType,+itemId);
+
+        // deleting the item from ui
+        UIMod.removeItem(ID);
     }
 
 
@@ -215,3 +254,30 @@ var AppModule = (function (budgetMod, UIMod) {
 }(budgetModule, UIModule));
 
 AppModule.init();
+
+
+
+
+
+
+
+// You can use getElementById only with document object, let me show you what I mean
+
+<div class="parent">
+
+    <p id="child">You can't use getElementById as a method to select child of a parent</p>
+
+</div>
+
+
+// parent selection
+let parent = document.querySelector('.parent');
+
+
+// child
+//It will return Uncaught TypeError 
+let child = parent.getElementById('child');   
+
+
+// Instead You can use other method like querySelector etc. to select that child
+let child = parent.querySelector('#child');
